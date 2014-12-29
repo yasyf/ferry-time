@@ -2,7 +2,10 @@
 <html lang="en" ng-app='FerryTime' ng-controller='RootCtrl' ng-cloak>
   <head>
     <meta charset="utf-8" />
-    <title>{% block title %}{% endblock %} - FerryTime</title>
+    {% raw %}
+      <title ng-bind-template="{{title}} - FerryTime">FerryTime</title>
+    {% endraw %}
+
     {% block meta %}{% endblock %}
 
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">

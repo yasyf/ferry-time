@@ -1,5 +1,7 @@
-FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$routeParams'
- ($scope, API, $q, $timeout, $location, $routeParams) ->
+FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$routeParams', '$rootScope',
+ ($scope, API, $q, $timeout, $location, $routeParams, $rootScope) ->
+
+  $rootScope.title = $routeParams.terminal
 
   $scope.terminal =
     name: $routeParams.terminal

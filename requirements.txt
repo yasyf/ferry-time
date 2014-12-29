@@ -1,4 +1,4 @@
-bcferries==0.0.14
+bcferries==0.0.16
 beautifulsoup4==4.3.2
 cssmin==0.2.0
 Flask==0.10.1

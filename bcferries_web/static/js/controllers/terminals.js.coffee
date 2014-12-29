@@ -1,5 +1,7 @@
-FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$location',
- ($scope, API, $q, $timeout, $location) ->
+FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$rootScope',
+ ($scope, API, $q, $timeout, $location, $rootScope) ->
+
+  $rootScope.title = 'All Terminals'
 
   $scope.terminals = []
   $scope.loadingStages = []
