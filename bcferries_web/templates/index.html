@@ -10,19 +10,23 @@
           </h2>
         </md-toolbar>
         <md-list>
-          <md-item ng-repeat="item in items">
+          <md-item ng-repeat="terminal in terminals">
             <md-item-content>
-              <div class="md-tile-content">
-                <h3>{{item.heading}}</h3>
-                <h4>{{item.subheading}}</h4>
-                <p>{{item.content}}</p>
-              </div>
-              <div class="md-tile-right">
-                <img src='http://mediafiles.dfds.com/seaways/marketing%20materials/web%20site/20080811_na_ship_outline_facilites_uk.jpg' class='ferry-img'>
+              <div class="md-tile-content pointer">
+                <h3 ng-bind='terminal.name'></h3>
+                <h4 ng-bind='joinRoutes(terminal)'></h4>
+                <p ng-bind='terminal.location[0]'></p>
+                <md-progress-linear md-mode="indeterminate" ng-if='loadingStages[$index] == 1'>
+                </md-progress-linear>
               </div>
             </md-item-content>
+            <md-divider ng-if="!$last"></md-divider>
           </md-item>
         </md-list>
+        <div layout="row" layout-align="center center" ng-if='loadingStages.length == 0' style='height: 90vh;'>
+          <md-progress-circular md-mode="indeterminate">
+          </md-progress-circular>
+        </div>
       </md-content>
     </div>
   {% endraw %}
