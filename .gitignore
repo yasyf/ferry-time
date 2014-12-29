@@ -9,10 +9,10 @@ cache/
 
 bower_components/
 node_modules/
-static/.webassets-cache/
-static/*/*.min.*
-static/css/min/
-static/js/min/
+bcferries_web/static/.webassets-cache/
+bcferries_web/static/*/*.min.*
+bcferries_web/static/css/min/
+bcferries_web/static/js/min/
 
 */target
 
