@@ -1,11 +1,6 @@
 {% raw %}
 <div id='route-wrapper'>
   <md-content>
-    <md-toolbar>
-      <h2 class="md-toolbar-tools">
-        <span>FerryTime: {{route.name}}</span>
-      </h2>
-    </md-toolbar>
     <md-tabs class="tabs" md-selected="selected">
       <md-tab id="crossings" aria-controls="crossings-content">
         Crossings
@@ -56,7 +51,8 @@
               <div class='md-tile-right right' ng-if='isOffTime(scheduled)'>
                 <section layout="row" layout-align="center center">
                   <md-button class="md-raised" ng-class="isEarly(scheduled) ? 'md-primary' : 'md-warn'">
-                      {{diffMinutes(scheduled)}} Minutes {{isEarly(scheduled) ? 'Early' : 'Late'}}
+                      {{diffMinutes(scheduled)}} Minute {{diffMinutes(scheduled) != 1 ? 's' : ''}}
+                      {{isEarly(scheduled) ? 'Early' : 'Late'}}
                   </md-button>
                 </section>
               </div>

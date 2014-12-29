@@ -1,4 +1,17 @@
 {% extends "_base.html" %}
 {% block body %}
-  <div ng-view></div>
+  {% raw %}
+    <md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span ng-bind-template="FerryTime: {{title}}"></span>
+        <div flex></div>
+        <div layout="row" layout-align="center center" >
+          <md-button ng-click='goHome()'>
+              Home
+          </md-button>
+        </div>
+      </h2>
+    </md-toolbar>
+    <div ng-view></div>
+  {% endraw %}
 {% endblock %}

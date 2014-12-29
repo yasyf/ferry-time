@@ -1,11 +1,6 @@
 {% raw %}
 <div id='terminal-wrapper'>
   <md-content>
-    <md-toolbar>
-      <h2 class="md-toolbar-tools">
-        <span>FerryTime: {{terminal.name}}</span>
-      </h2>
-    </md-toolbar>
     <md-list>
       <md-item ng-repeat="route in routes">
         <md-item-content class='pointer' ng-click='goTo(route)'>
