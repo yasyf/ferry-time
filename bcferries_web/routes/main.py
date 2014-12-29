@@ -12,3 +12,7 @@ def postprocess_request(response):
 @app.route('/')
 def index_view():
   return render_template('index.html')
+
+@app.route('/template/<name>')
+def terminal_view(name):
+  return render_template('fragments/_{}.html'.format(name))

@@ -1,0 +1,40 @@
+{% raw %}
+<div id='terminal-wrapper'>
+  <md-content>
+    <md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span>FerryTime: {{terminal.name}}</span>
+      </h2>
+    </md-toolbar>
+    <md-list>
+      <md-item ng-repeat="route in routes">
+        <md-item-content class='pointer' ng-click='goTo(route)'>
+          <div class="md-tile-content">
+            <h3 ng-bind='route.name'></h3>
+            <h4 ng-if='route.crossings'>Next sailing at {{earliestCrossingTime(route)}}</h4>
+            <p>
+              <span ng-if='route.distance > 0'>{{route.distance|number:0}} km |</span>
+              {{sailingsLeftToday(route)}} sailings remaining
+            </p>
+            <md-progress-linear md-mode="indeterminate" ng-if='loadingStages[$index] == 1'>
+            </md-progress-linear>
+          </div>
+          <div class='md-tile-right right' ng-if='terminal.name == nearestTerminal'>
+            <section layout="row" layout-align="center center">
+              <md-button class="md-fab md-primary">
+                  <md-icon icon="/static/img/ic_my_location_24px.svg" class='icon' aria-label='My Location'>
+                  </md-icon>
+              </md-button>
+            </section>
+          </div>
+        </md-item-content>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-item>
+    </md-list>
+    <div layout="row" layout-align="center center" ng-if='loadingStages.length == 0' style='height: 90vh;'>
+      <md-progress-circular md-mode="indeterminate">
+      </md-progress-circular>
+    </div>
+  </md-content>
+</div>
+{% endraw %}

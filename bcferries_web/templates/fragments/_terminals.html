@@ -1,0 +1,37 @@
+{% raw %}
+<div id='terminals-wrapper'>
+  <md-content>
+    <md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span>FerryTime: All Terminals</span>
+      </h2>
+    </md-toolbar>
+    <md-list>
+      <md-item ng-repeat="terminal in terminals">
+        <md-item-content class='pointer' ng-click='goTo(terminal)'>
+          <div class="md-tile-content">
+            <h3 ng-bind='terminal.name'></h3>
+            <h4 ng-bind='joinRoutes(terminal)'></h4>
+            <p ng-bind='terminal.location[0]'></p>
+            <md-progress-linear md-mode="indeterminate" ng-if='loadingStages[$index] == 1'>
+            </md-progress-linear>
+          </div>
+          <div class='md-tile-right right' ng-if='terminal.name == nearestTerminal'>
+            <section layout="row" layout-align="center center">
+              <md-button class="md-fab md-primary">
+                  <md-icon icon="/static/img/ic_my_location_24px.svg" class='icon' aria-label='My Location'>
+                  </md-icon>
+              </md-button>
+            </section>
+          </div>
+        </md-item-content>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-item>
+    </md-list>
+    <div layout="row" layout-align="center center" ng-if='loadingStages.length == 0' style='height: 90vh;'>
+      <md-progress-circular md-mode="indeterminate">
+      </md-progress-circular>
+    </div>
+  </md-content>
+</div>
+{% endraw %}

@@ -1,4 +1,6 @@
-FerryTime.controller 'IndexCtrl', ['$scope', 'API', '$q', '$timeout', ($scope, API, $q, $timeout) ->
+FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$location',
+ ($scope, API, $q, $timeout, $location) ->
+
   $scope.terminals = []
   $scope.loadingStages = []
 
@@ -25,4 +27,7 @@ FerryTime.controller 'IndexCtrl', ['$scope', 'API', '$q', '$timeout', ($scope, A
   $scope.joinRoutes = (terminal) ->
     routes = _.pluck terminal.routes, 'name'
     routes.join(' | ')
+
+  $scope.goTo = (terminal) ->
+    $location.path "/terminal/#{terminal.name}"
 ]
