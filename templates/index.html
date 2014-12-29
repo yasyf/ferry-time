@@ -2,18 +2,28 @@
 {% block title %}FerryTime{% endblock %}
 {% block body %}
   {% raw %}
-    <div ng-controller='IndexCtrl'>
-      <form role="form">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" name='name' class="form-control" ng-model='data.name' placeholder="Ben Bitdiddle">
-          <label for="from">Your Phone Number</label>
-          <input type="tel" name='number' class="form-control" ng-model='data.number' placeholder="5555555555" pattern='\d{10}'>
-        </div>
-        <div class="form-group">
-          <button class='btn btn-default'>Go!</button>
-        </div>
-      </form>
+    <div ng-controller='IndexCtrl' id='index-wrapper'>
+      <md-content>
+        <md-toolbar>
+          <h2 class="md-toolbar-tools">
+            <span>Toolbar</span>
+          </h2>
+        </md-toolbar>
+        <md-list>
+          <md-item ng-repeat="item in items">
+            <md-item-content>
+              <div class="md-tile-content">
+                <h3>{{item.heading}}</h3>
+                <h4>{{item.subheading}}</h4>
+                <p>{{item.content}}</p>
+              </div>
+              <div class="md-tile-right">
+                <img src='http://mediafiles.dfds.com/seaways/marketing%20materials/web%20site/20080811_na_ship_outline_facilites_uk.jpg' class='ferry-img'>
+              </div>
+            </md-item-content>
+          </md-item>
+        </md-list>
+      </md-content>
     </div>
   {% endraw %}
 {% endblock %}

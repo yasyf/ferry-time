@@ -1,3 +1,7 @@
 FerryTime.controller 'IndexCtrl', ['$scope', ($scope) ->
-  $scope.data = {}
+  $scope.items = [
+    heading: 'Hello World!'
+    subheading: 'This is a test'
+    content: 'Lorem ipsum...'
+  ]
 ]
