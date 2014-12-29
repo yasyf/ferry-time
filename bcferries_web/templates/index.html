@@ -1,17 +1,24 @@
 {% extends "_base.html" %}
 {% block body %}
   {% raw %}
-    <md-toolbar>
-      <h2 class="md-toolbar-tools">
-        <span ng-bind-template="FerryTime: {{title}}"></span>
-        <div flex></div>
-        <div layout="row" layout-align="center center" >
-          <md-button ng-click='goHome()'>
-              Home
-          </md-button>
-        </div>
-      </h2>
-    </md-toolbar>
-    <div ng-view></div>
+    <md-content style='height: 95vh;'>
+      <md-toolbar>
+        <h2 class="md-toolbar-tools">
+          <span ng-bind-template="FerryTime: {{title}}"></span>
+          <div flex></div>
+          <div layout="row" layout-align="center center" >
+            <md-button ng-click='goHome()'>
+                Home
+            </md-button>
+          </div>
+        </h2>
+      </md-toolbar>
+      <div ng-view></div>
+    </md-content>
+    <div layout="row" layout-align="center end">
+      <md-button href='http://www.yasyf.com' target="_blank" md-no-ink class="md-primary">
+        &copy; Copyright 2015 Yasyf Mohamedali
+      </md-button>
+    </div>
   {% endraw %}
 {% endblock %}

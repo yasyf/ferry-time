@@ -7,7 +7,7 @@
           <div class="md-tile-content">
             <h3 ng-bind='route.name'></h3>
             <h4 ng-if='route.crossings'>Next sailing at {{earliestCrossingTime(route)}}</h4>
-            <p>
+            <p ng-if='sailingsLeftToday(route) > 0'>
               <span ng-if='route.distance > 0'>{{route.distance|number:0}} km |</span>
               {{sailingsLeftToday(route)}} sailings remaining
             </p>
