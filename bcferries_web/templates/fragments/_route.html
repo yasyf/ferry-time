@@ -3,7 +3,7 @@
   <md-content>
     <md-tabs class="tabs" md-selected="selected">
       <md-tab id="crossings" aria-controls="crossings-content">
-        Crossings
+        Departures
       </md-tab>
       <md-tab id="schedule" aria-controls="schedule-content">
         Schedule
@@ -51,7 +51,7 @@
               <div class='md-tile-right right' ng-if='isOffTime(scheduled)'>
                 <section layout="row" layout-align="center center">
                   <md-button class="md-raised" ng-class="isEarly(scheduled) ? 'md-primary' : 'md-warn'">
-                      {{diffMinutes(scheduled)}} Minute {{diffMinutes(scheduled) != 1 ? 's' : ''}}
+                      {{diffMinutes(scheduled)}} Minute{{diffMinutes(scheduled) != 1 ? 's' : ''}}
                       {{isEarly(scheduled) ? 'Early' : 'Late'}}
                   </md-button>
                 </section>
