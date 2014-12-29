@@ -1,3 +1,3 @@
-FlaskStart.controller 'IndexCtrl', ['$scope', ($scope) ->
+FerryTime.controller 'IndexCtrl', ['$scope', ($scope) ->
   $scope.data = {}
 ]

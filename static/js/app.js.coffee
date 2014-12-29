@@ -1,4 +1,4 @@
-FlaskStart = angular.module 'FlaskStart', ['ui.bootstrap']
+FerryTime = angular.module 'FerryTime', ['ui.bootstrap']
 
-FlaskStart.controller 'RootCtrl', ['$scope', ($scope) ->
+FerryTime.controller 'RootCtrl', ['$scope', ($scope) ->
 ]
