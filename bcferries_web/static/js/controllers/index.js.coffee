@@ -4,14 +4,23 @@ FerryTime.controller 'IndexCtrl', ['$scope', 'API', '$q', '$timeout', ($scope, A
 
   API.get(['all']).then (response) ->
     terminals = response.all.terminals
-    $scope.loadingStages = _.times terminals.length, -> 1
-    $scope.terminals = terminals
+    $timeout ->
+      $scope.loadingStages = _.times terminals.length, -> 1
+      $scope.terminals = terminals
     _.forEach terminals, (terminal, i) ->
       API.get(['terminal', terminal.name])
       .then (response) ->
         $timeout ->
           $scope.terminals[i] = response.terminal
           $scope.loadingStages[i] = 2
+
+  navigator.geolocation.getCurrentPosition (position) ->
+    latLon = "#{position.coords.latitude}, #{position.coords.longitude}"
+    API.get ['nearest_terminal'],
+      location: latLon
+    .then (response) ->
+      $timeout ->
+        $scope.nearestTerminal = response.nearest_terminal.name
 
   $scope.joinRoutes = (terminal) ->
     routes = _.pluck terminal.routes, 'name'

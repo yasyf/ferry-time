@@ -10,7 +10,7 @@ def terminals_view():
 
 @app.route('/api/nearest_terminal')
 def nearest_terminal_view():
-  loc = request.values.get('loc')
+  loc = request.values.get('location')
   return jsonify({'nearest_terminal': bc.nearest_terminal(loc).to_dict(json=True)})
 
 @app.route('/api/terminal/<terminal>')
