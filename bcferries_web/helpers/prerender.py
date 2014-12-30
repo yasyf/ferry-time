@@ -20,7 +20,6 @@ BASE_URL = 'http://service.prerender.io/'
 def prerender_request():
   headers = {'X-Prerender-Token': os.getenv('PRERENDER_TOKEN')}
   url = "{}{}".format(BASE_URL, request.url)
-  print url
   r = requests.get(url, headers=headers)
   response = Response(r.content)
   for k,v in r.headers.items():
