@@ -26,6 +26,14 @@ def missing_page_hangler(error):
 def index_view():
   return render_template('index.html')
 
+@app.route('/sitemap.xml')
+def sitemap_view():
+  return render_template('sitemap.xml')
+
+@app.route('/robots.txt')
+def robots_view():
+  return render_template('robots.txt')
+
 @app.route('/template/<name>')
 def terminal_view(name):
   return render_template('fragments/_{}.html'.format(name))
