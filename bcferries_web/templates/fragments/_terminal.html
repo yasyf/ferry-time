@@ -5,7 +5,9 @@
       <md-item ng-repeat="route in routes">
         <md-item-content class='pointer' ng-click='goTo(route)'>
           <div class="md-tile-content">
-            <h3 ng-bind='route.name'></h3>
+            <h3>
+              <a ng-href="{{goToLink(route)}}" class='inherit' ng-bind="route.name"></a>
+            </h3>
             <h4 ng-if='route.crossings.length > 0'>Next sailing at {{earliestCrossingTime(route)}}</h4>
             <h4 ng-if='route.crossings.length == 0'>No more sailings today</h4>
             <p ng-if='sailingsLeftToday(route) > 0'>

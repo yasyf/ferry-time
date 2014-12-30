@@ -37,11 +37,14 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location
 
     $q.all(crossingPromises.concat schedulePromises).then -> $scope.ready()
 
-  $scope.toggle = ->
-    if $scope.selected is 0
-      $location.path "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/departures"
+  $scope.toggleLink = (tab) ->
+    if tab is 0
+      "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/departures"
     else
-      $location.path "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/schedule"
+      "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/schedule"
+
+  $scope.toggle = ->
+    $location.path $scope.toggleLink($scope.selected^0)
 
   $scope.formatTime = (timeString) ->
     moment(timeString).format('h:mm A')

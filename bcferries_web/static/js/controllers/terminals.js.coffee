@@ -31,6 +31,9 @@ FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$loca
     routes = _.pluck terminal.routes, 'name'
     routes.join(' | ')
 
+  $scope.goToLink = (terminal) ->
+    "/terminal/#{terminal.name}"
+
   $scope.goTo = (terminal) ->
-    $location.path "/terminal/#{terminal.name}"
+    $location.path $scope.goToLink(terminal)
 ]

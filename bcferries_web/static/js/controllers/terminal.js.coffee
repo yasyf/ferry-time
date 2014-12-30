@@ -31,6 +31,9 @@ FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$locat
     sailings = _.filter route.schedule, (scheduled) -> moment(scheduled.name, "h:mma") > moment()
     sailings.length
 
+  $scope.goToLink = (route) ->
+    "/terminal/#{$scope.terminal.name}/route/#{route.name}/departures"
+
   $scope.goTo = (route) ->
-    $location.path "/terminal/#{$scope.terminal.name}/route/#{route.name}/departures"
+    $location.path $scope.goToLink(route)
 ]

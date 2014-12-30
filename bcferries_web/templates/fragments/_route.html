@@ -3,10 +3,10 @@
   <md-content>
     <md-tabs class="tabs" md-selected="selected">
       <md-tab id="crossings" aria-controls="crossings-content">
-        Departures
+        <a ng-href="{{toggleLink(0)}}" class='inherit'>Departures</a>
       </md-tab>
       <md-tab id="schedule" aria-controls="schedule-content">
-        Schedule
+        <a ng-href="{{toggleLink(1)}}" class='inherit'>Schedule</a>
       </md-tab>
     </md-tabs>
     <ng-switch on="selected" class="tabpanel-container">

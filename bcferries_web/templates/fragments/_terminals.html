@@ -4,7 +4,9 @@
       <md-item ng-repeat="terminal in terminals">
         <md-item-content class='pointer' ng-click='goTo(terminal)'>
           <div class="md-tile-content">
-            <h3 ng-bind='terminal.name'></h3>
+            <h3>
+              <a ng-href="{{goToLink(terminal)}}" class='inherit' ng-bind="terminal.name"></a>
+            </h3>
             <h4 ng-bind='joinRoutes(terminal)'></h4>
             <p ng-bind='terminal.location[0]'></p>
             <md-progress-linear md-mode="indeterminate" ng-if='loadingStages[$index] == 1'>
