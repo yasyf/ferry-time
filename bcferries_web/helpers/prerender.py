@@ -15,6 +15,8 @@ USER_AGENTS = [
     "Ask Jeeves"
 ]
 
+BLACKLISTED_EXTENSIONS = ['xml', 'txt', 'json', 'css', 'js', 'svg', 'ico', 'png', 'jpg']
+
 SERVICE_URL = 'http://service.prerender.io'
 SERVER_URL = 'https://bcferrytime.herokuapp.com'
 
@@ -30,6 +32,10 @@ def prerender_request():
 
 def should_prerender_request():
   if 'PhantomJS' in request.user_agent.string:
+    return False
+  if 'static' in request.path:
+    return False
+  if any([request.path.endswith(x) for x in BLACKLISTED_EXTENSIONS]):
     return False
   return request.args.get('_escaped_fragment_') != None or \
     any([x in request.user_agent.string for x in USER_AGENTS])
