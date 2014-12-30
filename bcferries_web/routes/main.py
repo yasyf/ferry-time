@@ -1,13 +1,16 @@
 from flask import render_template, request, redirect, url_for
 from bcferries_web import app, DEV
+from helpers.prerender import *
 
 @app.before_request
 def preprocess_request():
   if not DEV and not request.is_secure:
     https_indicators = ['CF-Visitor', 'X-Forwarded-Proto']
-    if not any(['https' in x for x in https_indicators]):
+    if not any(['https' in request.headers.get(x, '') for x in https_indicators]):
       url = request.url.replace('http://', 'https://', 1)
       return redirect(url, code=301)
+  if should_prerender_request():
+    return prerender_request()
 
 @app.after_request
 def postprocess_request(response):
