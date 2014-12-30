@@ -9,7 +9,7 @@ FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$loca
   API.get(['all']).then (response) ->
     terminals = response.all.terminals
     $timeout ->
-      $scope.loadingStages = _.times terminals.length, -> 1
+      $scope.loadingStages = _.times Math.max(1, terminals.length), -> 1
       $scope.terminals = terminals
     _.forEach terminals, (terminal, i) ->
       API.get(['terminal', terminal.name])

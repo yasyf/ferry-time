@@ -6,7 +6,8 @@
         <md-item-content class='pointer' ng-click='goTo(route)'>
           <div class="md-tile-content">
             <h3 ng-bind='route.name'></h3>
-            <h4 ng-if='route.crossings'>Next sailing at {{earliestCrossingTime(route)}}</h4>
+            <h4 ng-if='route.crossings.length > 0'>Next sailing at {{earliestCrossingTime(route)}}</h4>
+            <h4 ng-if='route.crossings.length == 0'>No more sailings today</h4>
             <p ng-if='sailingsLeftToday(route) > 0'>
               <span ng-if='route.distance > 0'>{{route.distance|number:0}} km |</span>
               {{sailingsLeftToday(route)}} sailings remaining

@@ -12,7 +12,7 @@ FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$locat
     routes = response.terminal.routes
     $timeout ->
       $scope.terminal = response.terminal
-      $scope.loadingStages = _.times routes.length, -> 1
+      $scope.loadingStages = _.times Math.max(1, routes.length), -> 1
       $scope.routes = routes
     _.forEach routes, (route, i) ->
       API.get(['terminal', $scope.terminal.name, 'route', route.name])

@@ -18,8 +18,8 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location
     schedule = response.route.schedule
     $timeout ->
       $scope.route = response.route
-      $scope.crossingloadingStages = _.times crossings.length, -> 1
-      $scope.scheduledloadingStages = _.times schedule.length, -> 1
+      $scope.crossingloadingStages = _.times Math.max(1, crossings.length), -> 1
+      $scope.scheduledloadingStages = _.times Math.max(1, schedule.length), -> 1
       $scope.crossings = crossings
       $scope.schedule = schedule
     _.forEach crossings, (crossing, i) ->
