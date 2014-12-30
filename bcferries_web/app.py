@@ -1,11 +1,10 @@
-from bcferries_web import app
+from bcferries_web import app, DEV
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext import assets
 import os, glob
 
 app.secret_key = os.environ.get('SK')
 app.wsgi_app = ProxyFix(app.wsgi_app)
-dev = os.environ.get('DEV') == 'true'
 
 env = assets.Environment(app)
 env.load_path = [os.path.join(os.path.dirname(__file__), os.path.pardir)]
@@ -28,7 +27,7 @@ css.append(less_bundle)
 js_filters = []
 css_filters = []
 
-if not dev:
+if not DEV:
   js_filters.append('rjsmin')
   css_filters.append('cssmin')
 
@@ -40,4 +39,4 @@ env.register('css_all', assets.Bundle(*css, filters=css_filters, output='css/min
 from routes import *
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=int(os.environ.get('PORT') or 5000), debug=dev)
+  app.run(host='0.0.0.0', port=int(os.environ.get('PORT') or 5000), debug=DEV)
