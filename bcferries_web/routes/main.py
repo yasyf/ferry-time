@@ -3,7 +3,7 @@ from bcferries_web import app, DEV
 
 @app.before_request
 def preprocess_request():
-  if not DEV:
+  if not DEV and not request.is_secure:
     https_indicators = ['CF-Visitor', 'X-Forwarded-Proto']
     if not any(['https' in x for x in https_indicators]):
       url = request.url.replace('http://', 'https://', 1)
