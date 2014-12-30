@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from bcferries_web import app, DEV
-from helpers.prerender import *
+from bcferries_web.helpers.prerender import *
 
 @app.before_request
 def preprocess_request():
