@@ -19,13 +19,14 @@ FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$loca
           $scope.loadingStages[i] = 2
     $q.all(promises).then -> $scope.ready()
 
-  navigator.geolocation.getCurrentPosition (position) ->
-    latLon = "#{position.coords.latitude}, #{position.coords.longitude}"
-    API.get ['nearest_terminal'],
-      location: latLon
-    .then (response) ->
-      $timeout ->
-        $scope.nearestTerminal = response.nearest_terminal.name
+  if navigator.geolocation
+    navigator.geolocation.getCurrentPosition (position) ->
+      latLon = "#{position.coords.latitude}, #{position.coords.longitude}"
+      API.get ['nearest_terminal'],
+        location: latLon
+      .then (response) ->
+        $timeout ->
+          $scope.nearestTerminal = response.nearest_terminal.name
 
   $scope.joinRoutes = (terminal) ->
     routes = _.pluck terminal.routes, 'name'
