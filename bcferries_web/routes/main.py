@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request
 from bcferries_web import app, DEV
 from bcferries_web.helpers.prerender import *
 
@@ -20,8 +20,7 @@ def postprocess_request(response):
 
 @app.errorhandler(404)
 def missing_page_hangler(error):
-  url = "{}#!{}".format(url_for('index_view'), request.path)
-  return redirect(url)
+  return index_view()
 
 @app.route('/')
 def index_view():
