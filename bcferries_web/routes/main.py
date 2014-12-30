@@ -1,4 +1,4 @@
-from flask import render_template, request, make_response
+from flask import render_template, request, make_response, redirect
 from bcferries_web import app, DEV
 from bcferries_web.helpers.prerender import *
 
