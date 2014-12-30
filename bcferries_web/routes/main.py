@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, make_response
 from bcferries_web import app, DEV
 from bcferries_web.helpers.prerender import *
 
@@ -28,11 +28,17 @@ def index_view():
 
 @app.route('/sitemap.xml')
 def sitemap_view():
-  return render_template('sitemap.xml')
+  xml = render_template('sitemap.xml')
+  response = make_response(xml)
+  response.headers["Content-Type"] = "application/xml"
+  return response
 
 @app.route('/robots.txt')
 def robots_view():
-  return render_template('robots.txt')
+  text = render_template('robots.txt')
+  response = make_response(text)
+  response.headers["Content-Type"] = " text/plain"
+  return response
 
 @app.route('/template/<name>')
 def terminal_view(name):
