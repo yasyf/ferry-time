@@ -13,9 +13,16 @@ FerryTime.config ['$routeProvider', '$locationProvider', ($routeProvider, $locat
   .when '/terminal/:terminal',
     templateUrl: '/template/terminal'
     controller: 'TerminalCtrl'
-  .when '/terminal/:terminal/route/:route',
+  .when '/terminal/:terminal/route/:route/departures',
     templateUrl: '/template/route'
     controller: 'RouteCtrl'
+    resolve:
+      tab: -> 0
+  .when '/terminal/:terminal/route/:route/schedule',
+    templateUrl: '/template/route'
+    controller: 'RouteCtrl'
+    resolve:
+      tab: -> 1
   .otherwise
     redirectTo: '/terminals'
 

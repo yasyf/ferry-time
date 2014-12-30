@@ -14,12 +14,13 @@ FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$locat
       $scope.terminal = response.terminal
       $scope.loadingStages = _.times Math.max(1, routes.length), -> 1
       $scope.routes = routes
-    _.forEach routes, (route, i) ->
+    promises = _.map routes, (route, i) ->
       API.get(['terminal', $scope.terminal.name, 'route', route.name])
       .then (response) ->
         $timeout ->
           $scope.routes[i] = response.route
           $scope.loadingStages[i] = 2
+    $q.all(promises).then -> window.prerenderReady = true
 
   $scope.earliestCrossingTime = (route) ->
     crossingTimes = _.map route.crossings, (crossing) -> moment(crossing.name, "h:mma")
@@ -31,5 +32,5 @@ FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$locat
     sailings.length
 
   $scope.goTo = (route) ->
-    $location.path "/terminal/#{$scope.terminal.name}/route/#{route.name}"
+    $location.path "/terminal/#{$scope.terminal.name}/route/#{route.name}/departures"
 ]

@@ -33,6 +33,7 @@
     {% assets "js_all" %}
       <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
+    <script> window.prerenderReady = false; </script>
     <script>
       {% block js %}{% endblock %}
     </script>

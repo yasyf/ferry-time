@@ -1,5 +1,5 @@
-FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$routeParams', '$rootScope'
- ($scope, API, $q, $timeout, $location, $routeParams, $rootScope) ->
+FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$routeParams', '$rootScope', 'tab',
+ ($scope, API, $q, $timeout, $location, $routeParams, $rootScope, tab) ->
 
   $rootScope.title = $routeParams.route
 
@@ -11,7 +11,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location
   $scope.schedule = []
   $scope.crossingloadingStages = []
   $scope.scheduledloadingStages = []
-  $scope.selected = 0
+  $scope.selected = tab
 
   API.get(['terminal', $scope.terminal.name, 'route', $scope.route.name]).then (response) ->
     crossings = response.route.crossings
@@ -22,21 +22,26 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location
       $scope.scheduledloadingStages = _.times Math.max(1, schedule.length), -> 1
       $scope.crossings = crossings
       $scope.schedule = schedule
-    _.forEach crossings, (crossing, i) ->
+    crossingPromises = _.map crossings, (crossing, i) ->
       API.get(['terminal', $scope.terminal.name, 'route', $scope.route.name, 'crossing', crossing.name])
       .then (response) ->
         $timeout ->
           $scope.crossings[i] = response.crossing
           $scope.crossingloadingStages[i] = 2
-    _.forEach schedule, (scheduled, i) ->
+    schedulePromises = _.map schedule, (scheduled, i) ->
       API.get(['terminal', $scope.terminal.name, 'route', $scope.route.name, 'scheduled', scheduled.name])
       .then (response) ->
         $timeout ->
           $scope.schedule[i] = response.scheduled
           $scope.scheduledloadingStages[i] = 2
 
+    $q.all(crossingPromises.concat schedulePromises).then -> window.prerenderReady = true
+
   $scope.toggle = ->
-    $scope.selected ^= 1
+    if $scope.selected is 0
+      $location.path "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/departures"
+    else
+      $location.path "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/schedule"
 
   $scope.formatTime = (timeString) ->
     moment(timeString).format('h:mm A')
