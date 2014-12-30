@@ -35,7 +35,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location
           $scope.schedule[i] = response.scheduled
           $scope.scheduledloadingStages[i] = 2
 
-    $q.all(crossingPromises.concat schedulePromises).then -> window.prerenderReady = true
+    $q.all(crossingPromises.concat schedulePromises).then -> $scope.ready()
 
   $scope.toggle = ->
     if $scope.selected is 0

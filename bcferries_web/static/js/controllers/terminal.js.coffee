@@ -20,7 +20,7 @@ FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', '$locat
         $timeout ->
           $scope.routes[i] = response.route
           $scope.loadingStages[i] = 2
-    $q.all(promises).then -> window.prerenderReady = true
+    $q.all(promises).then -> $scope.ready()
 
   $scope.earliestCrossingTime = (route) ->
     crossingTimes = _.map route.crossings, (crossing) -> moment(crossing.name, "h:mma")

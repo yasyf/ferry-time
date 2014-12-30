@@ -17,7 +17,7 @@ FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$loca
         $timeout ->
           $scope.terminals[i] = response.terminal
           $scope.loadingStages[i] = 2
-    $q.all(promises).then -> window.prerenderReady = true
+    $q.all(promises).then -> $scope.ready()
 
   navigator.geolocation.getCurrentPosition (position) ->
     latLon = "#{position.coords.latitude}, #{position.coords.longitude}"

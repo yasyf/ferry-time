@@ -3,6 +3,8 @@ FerryTime = angular.module 'FerryTime', ['ngMaterial', 'ngRoute']
 FerryTime.controller 'RootCtrl', ['$scope', '$location', ($scope, $location) ->
   $scope.goHome = ->
     $location.path '/'
+  $scope.ready = ->
+    window.prerenderReady = true
 ]
 
 FerryTime.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
