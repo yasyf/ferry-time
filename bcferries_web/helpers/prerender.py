@@ -15,11 +15,12 @@ USER_AGENTS = [
     "Ask Jeeves"
 ]
 
-BASE_URL = 'http://service.prerender.io/'
+SERVICE_HOST = 'service.prerender.io'
+SERVER_HOST = 'bcferrytime.herokuapp.com'
 
 def prerender_request():
   headers = {'X-Prerender-Token': os.getenv('PRERENDER_TOKEN')}
-  url = "{}{}".format(BASE_URL, request.url)
+  url = "https://{}/{}{}".format(SERVICE_HOST, SERVER_HOST, request.path)
   r = requests.get(url, headers=headers)
   response = Response(r.content)
   for k,v in r.headers.items():
