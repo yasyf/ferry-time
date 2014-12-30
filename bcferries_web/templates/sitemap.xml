@@ -5,42 +5,36 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Horseshoe%2520Bay</loc>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/</loc>
+    <loc>https://{{host}}/</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminals</loc>
+    <loc>https://{{host}}/terminals</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/static/css/min/styles.min.css</loc>
+    <loc>https://{{host}}/terminal/Langdale</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/robots.txt</loc>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Langdale</loc>
+    <loc>https://{{host}}/terminal/Tsawwassen</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Nanaimo%2520(Dep.%2520Bay)</loc>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/schedule</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Tsawwassen</loc>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/departures</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/schedule</loc>
+    <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/schedule</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/departures</loc>
+    <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/departures</loc>
   </url>
   <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/schedule</loc>
-  </url>
-  <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/departures</loc>
-  </url>
-  <url>
-    <loc>https://bcferrytime.herokuapp.com/terminal/Nanaimo%2520(Duke%2520Pt)</loc>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)</loc>
   </url>
 </urlset>

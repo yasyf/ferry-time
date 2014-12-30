@@ -28,7 +28,7 @@ def index_view():
 
 @app.route('/sitemap.xml')
 def sitemap_view():
-  xml = render_template('sitemap.xml')
+  xml = render_template('sitemap.xml', host=request.host)
   response = make_response(xml)
   response.headers["Content-Type"] = "application/xml"
   return response
