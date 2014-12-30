@@ -7,6 +7,7 @@ FerryTime.controller 'RootCtrl', ['$scope', '$location', '$window', '$timeout',
   $scope.ready = ->
     $timeout ->
       $window.prerenderReady = true
+      $window.onCaptureReady() if $window.onCaptureReady
     , 1000
 ]
 
