@@ -19,4 +19,8 @@ FerryTime.config ['$routeProvider', '$locationProvider', ($routeProvider, $locat
   .otherwise
     redirectTo: '/terminals'
 
+  $locationProvider
+  .html5Mode(true)
+  .hashPrefix('!')
+
 ]

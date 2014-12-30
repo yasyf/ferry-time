@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, url_for
 from bcferries_web import app, DEV
 
 @app.before_request
@@ -14,6 +14,11 @@ def postprocess_request(response):
   if not DEV:
     response.headers.setdefault('Strict-Transport-Security', 'max-age=31536000; includeSubDomains')
   return response
+
+@app.errorhandler(404)
+def missing_page_hangler(error):
+  url = "{}#!{}".format(url_for('index_view'), request.path)
+  return redirect(url)
 
 @app.route('/')
 def index_view():
