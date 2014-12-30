@@ -21,7 +21,8 @@ SERVICE_URL = 'http://service.prerender.io'
 
 def prerender_request():
   headers = {'X-Prerender-Token': os.getenv('PRERENDER_TOKEN')}
-  url = "{}/https://{}{}".format(SERVICE_URL, request.host, request.path)
+  query = ['{}={}'.format(k, v) for k,v in request.args.items() if k != '_escaped_fragment_']
+  url = "{}/{}?{}".format(SERVICE_URL, request.base_url, '&'.join(query))
   r = requests.get(url, headers=headers)
   response = Response(r.content)
   for k,v in r.headers.items():
