@@ -1,8 +1,5 @@
 from flask import jsonify, request
-from bcferries_web import app
-from bcferries import BCFerries
-
-bc = BCFerries()
+from bcferries_web import app, bc
 
 @app.route('/api/all')
 def terminals_api_view():
