@@ -7,17 +7,16 @@
           <span ng-bind-template="FerryTime: {{title}}"></span>
           <div flex></div>
           <div layout="row" layout-align="center center" >
-            <md-button ng-click='goHome()'>
-                Home
+            <md-button ng-click='goHome()' id='home'>
             </md-button>
           </div>
         </h2>
       </md-toolbar>
       <div ng-view></div>
     </md-content>
-    <div layout="row" layout-align="center end">
+    <div layout="row" layout-align="center end" id='copyright'>
       <md-button href='http://www.yasyf.com' target="_blank" md-no-ink class="md-primary">
-        &copy; Copyright 2015 Yasyf Mohamedali
+        &copy; 2015 Yasyf Mohamedali
       </md-button>
     </div>
   {% endraw %}
