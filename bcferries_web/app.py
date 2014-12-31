@@ -11,8 +11,10 @@ env.load_path = [os.path.join(os.path.dirname(__file__), os.path.pardir)]
 
 js = []
 coffee = []
-order = ['services', 'filters', 'directives', 'controllers']
-for x in order:
+js_order = ['vendor', 'services', 'filters', 'directives', 'controllers']
+css_order = ['vendor']
+
+for x in js_order:
   js.extend(glob.glob('bcferries_web/static/js/{}/*.js'.format(x)))
   coffee.extend(glob.glob('bcferries_web/static/js/{}/*.js.coffee'.format(x)))
 
@@ -21,6 +23,10 @@ js.append(coffee_bundle)
 
 css = glob.glob('bcferries_web/static/css/*.css')
 less = glob.glob('bcferries_web/static/css/*.less')
+for x in css_order:
+  css.extend(glob.glob('bcferries_web/static/css/{}/*.css'.format(x)))
+  less.extend(glob.glob('bcferries_web/static/css/{}/*.less'.format(x)))
+
 less_bundle = assets.Bundle(*less, filters=['less'])
 css.append(less_bundle)
 

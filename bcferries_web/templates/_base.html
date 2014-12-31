@@ -18,6 +18,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FerryTime">
 
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
     {% assets "css_all" %}
@@ -42,7 +43,10 @@
     {% assets "js_all" %}
       <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
-    <script> window.prerenderReady = false; </script>
+    <script>
+      window.prerenderReady = false;
+      addToHomescreen({skipFirstVisit: true});
+    </script>
     <script>
       {% block js %}{% endblock %}
     </script>
