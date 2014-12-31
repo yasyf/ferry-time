@@ -12,6 +12,13 @@
 
     {% block meta %}{% endblock %}
 
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="128x128" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
     {% assets "css_all" %}
     <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"></link>
