@@ -7,5 +7,5 @@ then
   python bcferries_web/app.py
 else
   python bcferries_web/clock/run.py &
-  gunicorn -b "0.0.0.0:$PORT" -w 5 bcferries_web.app:app
+  gunicorn -b "0.0.0.0:$PORT" -w 5 -k gevent bcferries_web.app:app
 fi
