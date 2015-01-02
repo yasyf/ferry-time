@@ -5,36 +5,180 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://{{host}}/terminal/Horseshoe%2520Bay</loc>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Langdale/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Tsawwassen/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Tsawwassen/schedule</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Swartz%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Duke%2520Point/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Langdale/route/Langdale%2520to%2520Horseshoe%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)/route/Departure%2520Bay%2520to%2520Horseshoe%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Snug%2520Cove%2520(Bowen%2520Is.)/schedule</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Southern%2520Gulf%2520Islands/schedule</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Departure%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Southern%2520Gulf%2520Islands/schedule</loc>
   </url>
   <url>
     <loc>https://{{host}}/</loc>
   </url>
   <url>
-    <loc>https://{{host}}/terminals</loc>
-  </url>
-  <url>
-    <loc>https://{{host}}/terminal/Langdale</loc>
-  </url>
-  <url>
     <loc>https://{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)</loc>
   </url>
   <url>
-    <loc>https://{{host}}/terminal/Tsawwassen</loc>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)/route/Departure%2520Bay%2520to%2520Horseshoe%2520Bay/departures</loc>
   </url>
   <url>
-    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/schedule</loc>
+    <loc>https://{{host}}/terminals</loc>
   </url>
   <url>
-    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/departures</loc>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Langdale/schedule</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Swartz%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Southern%2520Gulf%2520Islands/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Langdale/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Swartz%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Snug%2520Cove%2520(Bowen%2520Is.)/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Langdale/route/Langdale%2520to%2520Horseshoe%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Duke%2520Point/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Tsawwassen/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)/route/Departure%2520Bay%2520to%2520Horseshoe%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Swartz%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Duke%2520Point/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)/route/Departure%2520Bay%2520to%2520Horseshoe%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Departure%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Southern%2520Gulf%2520Islands/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Snug%2520Cove%2520(Bowen%2520Is.)/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Tsawwassen/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Departure%2520Bay/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Southern%2520Gulf%2520Islands/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Langdale/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Southern%2520Gulf%2520Islands/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Langdale/route/Langdale%2520to%2520Horseshoe%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Swartz%2520Bay</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Tsawwassen</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Duke%2520Point/schedule</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Langdale</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Horseshoe%2520Bay</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Nanaimo%2520(Dep.%2520Bay)</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)</loc>
+  </url>
+  <url>
+    <loc>https://www.{{host}}/</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Langdale/route/Langdale%2520to%2520Horseshoe%2520Bay/schedule</loc>
   </url>
   <url>
     <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/schedule</loc>
   </url>
   <url>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Snug%2520Cove%2520(Bowen%2520Is.)/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/schedule</loc>
+  </url>
+  <url>
     <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Fulford%2520Harbour%2520(Saltspring%2520Is.)/departures</loc>
   </url>
   <url>
-    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)</loc>
+    <loc>https://{{host}}/terminal/Swartz%2520Bay/route/Swartz%2520Bay%2520to%2520Southern%2520Gulf%2520Islands/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Horseshoe%2520Bay/route/Horseshoe%2520Bay%2520to%2520Departure%2520Bay/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Tsawwassen/route/Tsawwassen%2520to%2520Southern%2520Gulf%2520Islands/departures</loc>
+  </url>
+  <url>
+    <loc>https://{{host}}/terminal/Nanaimo%2520(Duke%2520Pt)/route/Duke%2520Point%2520to%2520Tsawwassen/departures</loc>
   </url>
 </urlset>
