@@ -2,6 +2,8 @@
 
 export PYTHONPATH=$(pwd)
 
+python bcferries_web/clock/run.py &
+
 if [ "$DEV" == "true" ]
 then
   python bcferries_web/app.py
