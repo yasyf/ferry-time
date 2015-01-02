@@ -24,7 +24,8 @@
               </div>
               <div class='md-tile-right right'>
                 <section layout="row" layout-align="center center">
-                  <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, crossing)'>
+                  <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, crossing)'
+                      ng-if='!isDeparted(scheduled)'>
                     <md-icon icon="/static/img/ic_phone_iphone_24px.svg" class='icon' aria-label='Subscribe'>
                     </md-icon>
                   </md-button>
@@ -60,7 +61,8 @@
                       Min<span class='hide-mobile'>ute{{diffMinutes(scheduled) != 1 ? 's' : ''}}</span>
                       <span class='hide-mobile'>{{isEarly(scheduled) ? 'Early' : 'Late'}}</span>
                   </md-button>
-                  <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, scheduled)'>
+                  <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, scheduled)'
+                      ng-if='!isDeparted(scheduled)'>
                     <md-icon icon="/static/img/ic_phone_iphone_24px.svg" class='icon' aria-label='Subscribe'>
                     </md-icon>
                   </md-button>
