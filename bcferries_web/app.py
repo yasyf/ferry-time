@@ -1,7 +1,7 @@
-from bcferries_web import app, DEV, scheduler
+from bcferries_web import app, DEV, scheduler, lock
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext import assets
-import os, glob
+import os, glob, lockfile
 
 app.secret_key = os.environ.get('SK')
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -46,5 +46,12 @@ from routes import *
 from clock import *
 
 if __name__ == '__main__':
-  scheduler.start()
-  app.run(host='0.0.0.0', port=int(os.environ.get('PORT') or 5000), debug=DEV)
+  try:
+    lock.acquire(timeout=1)
+    scheduler.start()
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT') or 5000), debug=DEV)
+  except lockfile.LockTimeout:
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT') or 5000), debug=DEV)
+  finally:
+    if lock.i_am_locking():
+      lock.release()
