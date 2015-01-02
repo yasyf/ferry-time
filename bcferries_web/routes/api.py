@@ -37,7 +37,9 @@ def terminal_route_scheduled_api_view(terminal, route, scheduled):
 
 @app.route('/api/terminal/<terminal>/route/<route>/subscribe/<time>', methods=['POST'])
 def terminal_route_subscribe_view(**kwargs):
-  insert = {'number': request.json['number'], 'pending': True}
+  insert = {'number': request.json['number'], 'done': False}
   insert.update(kwargs)
-  sms_queue.insert(insert)
-  return jsonify({'status': 'success'})
+  if not sms_queue.find_one(insert):
+    insert.update({'pending': True})
+    sms_queue.insert(insert)
+    return jsonify({'status': 'success'})
