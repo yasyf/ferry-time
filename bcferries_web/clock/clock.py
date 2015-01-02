@@ -39,7 +39,7 @@ def setup_pending_sms():
 def process_sms():
   now = datetime.datetime.utcnow()
   local_now = datetime.datetime.now()
-  cutoff =  now - datetime.timedelta(minutes=10)
+  cutoff = now - datetime.timedelta(minutes=10)
   for user in sms_queue.find({'pending': False, 'done': False, 'last_processed': {'$lte': cutoff}}):
     search = {'_id': user['_id']}
     scheduled = get_scheduled(user)
