@@ -1,10 +1,9 @@
 FerryTime.controller 'TerminalCtrl', ['$scope', 'API', '$q', '$timeout', 'Navigator', '$routeParams', '$rootScope',
  ($scope, API, $q, $timeout, Navigator, $routeParams, $rootScope) ->
 
-  $rootScope.title = $routeParams.terminal
-
   $scope.terminal =
-    name: $routeParams.terminal
+    name: $routeParams.terminal.replace(/-/g, ' ')
+  $rootScope.title = $scope.terminal.name
   $scope.routes = []
   $scope.loadingStages = []
 

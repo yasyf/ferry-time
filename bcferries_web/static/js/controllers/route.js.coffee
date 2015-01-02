@@ -2,12 +2,11 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
  'Navigator', '$routeParams', '$rootScope', 'tab', '$mdDialog',
  ($scope, API, $q, $timeout, Navigator, $routeParams, $rootScope, tab, $mdDialog) ->
 
-  $rootScope.title = $routeParams.route
-
   $scope.terminal =
-    name: $routeParams.terminal
+    name: $routeParams.terminal.replace(/-/g, ' ')
   $scope.route =
-    name: $routeParams.route
+    name: $routeParams.route.replace(/-/g, ' ')
+  $rootScope.title = $scope.route.name
   $scope.crossings = []
   $scope.schedule = []
   $scope.crossingloadingStages = []
