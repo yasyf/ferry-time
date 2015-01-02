@@ -56,8 +56,9 @@
                 <section layout="row" layout-align="center center">
                   <md-button class="md-raised" ng-class="isEarly(scheduled) ? 'md-primary' : 'md-warn'"
                     ng-if='isOffTime(scheduled)' style='margin-right: 10px;'>
-                      {{diffMinutes(scheduled)}} Minute{{diffMinutes(scheduled) != 1 ? 's' : ''}}
-                      {{isEarly(scheduled) ? 'Early' : 'Late'}}
+                      {{diffMinutes(scheduled)}}
+                      Min<span class='hide-mobile'>ute{{diffMinutes(scheduled) != 1 ? 's' : ''}}</span>
+                      <span class='hide-mobile'>{{isEarly(scheduled) ? 'Early' : 'Late'}}</span>
                   </md-button>
                   <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, scheduled)'>
                     <md-icon icon="/static/img/ic_phone_iphone_24px.svg" class='icon' aria-label='Subscribe'>

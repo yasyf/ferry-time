@@ -59,7 +59,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
 
   $scope.isOffTime = (scheduled) ->
     return false unless scheduled.actual_departure?
-    moment(scheduled.actual_departure) != moment(scheduled.scheduled_departure)
+    $scope.diffMinutes(scheduled) > 0
 
   $scope.isEarly = (scheduled) ->
     moment(scheduled.actual_departure) < moment(scheduled.scheduled_departure)

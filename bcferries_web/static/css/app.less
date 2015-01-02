@@ -11,10 +11,6 @@
 .md-header{
   background-color: #1976d2 !important;
 }
-.icon {
-  height: 24px;
-  width: 24px;
-}
 .checkmark {
   background: url(/static/img/ic_done_24px.svg) no-repeat;
   background-size: cover;
@@ -39,17 +35,26 @@
   #home:after {
     content: "Home";
   }
+  .icon {
+    height: 24px;
+    width: 24px;
+  }
 }
 
 @media only screen and (max-width: 780px) {
-  #copyright {
+  #copyright, .hide-mobile {
     display: none;
   }
-  #home {
-    padding-top: 5px;
+  #home:after {
+    content: "";
     background: url(/static/img/ic_home_24px.svg) no-repeat;
-    background-size: cover;
-    height: 30px;
+    display: inline-block;
     width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  .md-toolbar-tools > * {
+    font-size: 80%;
   }
 }
