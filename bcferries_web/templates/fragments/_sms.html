@@ -1,0 +1,30 @@
+{% raw %}
+<md-dialog>
+  <md-content>
+    <div ng-include='template'></div>
+  </md-content>
+</md-dialog>
+
+<script type="text/ng-template" id="form.html">
+  <form style="padding: 20px;" role="form" name='form'>
+    <md-text-float label="Cell Number" ng-model="data.number" ui-mask="(999)-999-9999" type="tel" required>
+    </md-text-float>
+    <md-button class="md-raised md-primary" ng-click='submit()' ng-disabled="form.$invalid">
+      Submit
+    </md-button>
+  </form>
+</script>
+
+<script type="text/ng-template" id="pending.html">
+  <div layout="row" layout-align="center center" style='height: 100%;'>
+    <md-progress-circular md-mode="indeterminate">
+    </md-progress-circular>
+  </div>
+</script>
+
+<script type="text/ng-template" id="success.html">
+  <div layout="row" layout-align="center center" style='height: 100%;'>
+    <div class='checkmark'></div>
+  </div>
+</script>
+{% endraw %}

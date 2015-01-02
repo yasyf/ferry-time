@@ -1,4 +1,4 @@
-FerryTime = angular.module 'FerryTime', ['ngMaterial', 'ngRoute']
+FerryTime = angular.module 'FerryTime', ['ngMaterial', 'ngRoute', 'ui.mask']
 
 FerryTime.controller 'RootCtrl', ['$scope', '$location', '$window', '$timeout',
  ($scope, $location, $window, $timeout) ->

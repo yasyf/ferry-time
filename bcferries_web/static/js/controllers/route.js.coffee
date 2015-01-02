@@ -1,5 +1,6 @@
-FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$routeParams', '$rootScope', 'tab',
- ($scope, API, $q, $timeout, $location, $routeParams, $rootScope, tab) ->
+FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
+ '$location', '$routeParams', '$rootScope', 'tab', '$mdDialog',
+ ($scope, API, $q, $timeout, $location, $routeParams, $rootScope, tab, $mdDialog) ->
 
   $rootScope.title = $routeParams.route
 
@@ -68,4 +69,14 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout', '$location
       moment(scheduled.scheduled_departure).diff(moment(scheduled.actual_departure), 'minutes')
     else
       moment(scheduled.actual_departure).diff(moment(scheduled.scheduled_departure), 'minutes')
+
+  $scope.subscribeSMS = (ev, sailing) ->
+    $mdDialog.show
+      templateUrl: '/template/sms'
+      targetEvent: ev
+      controller: 'SMSCtrl'
+      locals:
+        terminal: $scope.terminal
+        route: $scope.route
+        sailing: sailing
 ]

@@ -1,5 +1,6 @@
 from flask import jsonify, request
 from bcferries_web import app, bc
+from bcferries_web.helpers.mongo import sms_queue
 
 @app.route('/api/all')
 def terminals_api_view():
@@ -33,3 +34,10 @@ def terminal_route_crossing_api_view(terminal, route, crossing):
 @app.route('/api/terminal/<terminal>/route/<route>/scheduled/<scheduled>')
 def terminal_route_scheduled_api_view(terminal, route, scheduled):
   return jsonify({'scheduled': bc.terminal(terminal).route(route).scheduled(scheduled).to_dict(json=True)})
+
+@app.route('/api/terminal/<terminal>/route/<route>/subscribe/<time>', methods=['POST'])
+def terminal_route_subscribe_view(**kwargs):
+  insert = {'number': request.json['number'], 'pending': True}
+  insert.update(kwargs)
+  sms_queue.insert(insert)
+  return jsonify({'status': 'success'})

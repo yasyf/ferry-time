@@ -25,14 +25,17 @@ def send_user_sms(user, offset):
   message = "[FerryTime] {} Ferry at {} is now {}".format(user['route'], user['time'], fragment)
   send_sms(number, message)
 
-@scheduler.scheduled_job('interval', minutes=1)
+@scheduler.scheduled_job('interval', minutes=1, id='setup_pending_sms')
 def setup_pending_sms():
   for user in sms_queue.find({'pending': True}):
     offset = get_offset(user)
     update = {'pending': False, 'done': False, 'last_processed': datetime.datetime.utcnow(), 'offset': offset.seconds}
-    sms_queue.update({'_id': user['_id']}, update)
+    sms_queue.update({'_id': user['_id']}, {'$set': update})
+    message = "[FerryTime] Notifications enabled for {} Ferry at {}!".format(user['route'], user['time'])
+    send_sms(user['number'], message)
+    print 'Setup completed for {}'.format(user['_id'])
 
-@scheduler.scheduled_job('interval', minutes=5)
+@scheduler.scheduled_job('interval', minutes=5, id='process_sms')
 def process_sms():
   now = datetime.datetime.utcnow()
   local_now = datetime.datetime.now()
@@ -42,10 +45,11 @@ def process_sms():
     scheduled = get_scheduled(user)
     if scheduled.actual_departure and scheduled.actual_departure < local_now:
       update = {'last_processed': now, 'done': True}
-      sms_queue.update(search, update)
+      sms_queue.update(search, {'$set': update})
       continue
     offset = get_offset(user)
+    update = {'last_processed': now, 'offset': offset.seconds}
+    sms_queue.update(search, {'$set': update})
     if offset.seconds != user['offset']:
-      update = {'last_processed': now, 'offset': offset.seconds}
-      sms_queue.update(search, update)
       send_user_sms(user, offset)
+    print 'Process completed for {}'.format(user['_id'])

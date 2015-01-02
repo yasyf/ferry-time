@@ -24,6 +24,10 @@
               </div>
               <div class='md-tile-right right'>
                 <section layout="row" layout-align="center center">
+                  <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, crossing)'>
+                    <md-icon icon="/static/img/ic_phone_iphone_24px.svg" class='icon' aria-label='Subscribe'>
+                    </md-icon>
+                  </md-button>
                   <md-button class="md-fab" ng-class="crossing.capacity.filled > 50 ? 'md-warn' : 'md-primary'">
                       {{crossing.capacity.filled}}%
                   </md-button>
@@ -48,11 +52,16 @@
                 <md-progress-linear md-mode="indeterminate" ng-if='scheduledloadingStages[$index] == 1'>
                 </md-progress-linear>
               </div>
-              <div class='md-tile-right right' ng-if='isOffTime(scheduled)'>
+              <div class='md-tile-right right'>
                 <section layout="row" layout-align="center center">
-                  <md-button class="md-raised" ng-class="isEarly(scheduled) ? 'md-primary' : 'md-warn'">
+                  <md-button class="md-raised" ng-class="isEarly(scheduled) ? 'md-primary' : 'md-warn'"
+                    ng-if='isOffTime(scheduled)' style='margin-right: 10px;'>
                       {{diffMinutes(scheduled)}} Minute{{diffMinutes(scheduled) != 1 ? 's' : ''}}
                       {{isEarly(scheduled) ? 'Early' : 'Late'}}
+                  </md-button>
+                  <md-button class="md-fab" style='margin-right: 10px;' ng-click='subscribeSMS($event, scheduled)'>
+                    <md-icon icon="/static/img/ic_phone_iphone_24px.svg" class='icon' aria-label='Subscribe'>
+                    </md-icon>
                   </md-button>
                 </section>
               </div>
