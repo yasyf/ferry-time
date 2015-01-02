@@ -1,7 +1,13 @@
 from bcferries_web import app, DEV
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext import assets
-import os, glob
+import os, glob, bugsnag
+
+bugsnag.configure(api_key = os.getenv('BUGSNAG_KEY'), project_root = "/app")
+
+if not DEV:
+  from bugsnag.flask import handle_exceptions
+  handle_exceptions(app)
 
 app.secret_key = os.environ.get('SK')
 app.wsgi_app = ProxyFix(app.wsgi_app)
