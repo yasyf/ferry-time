@@ -2,9 +2,9 @@ import requests, os
 
 CARRIERS = {
   "Bell": "txt.bell.ca",
-  "Fido": "sms.fido.ca",
+  # "Fido": "sms.fido.ca",
   "Telus": "msg.telus.com",
-  "Koodo": "msg.telus.com",
+  # "Koodo": "msg.telus.com",
   "Rogers": "sms.rogers.com",
   "Wind": "txt.windmobile.ca",
   "Virgin": "vmobile.ca"
