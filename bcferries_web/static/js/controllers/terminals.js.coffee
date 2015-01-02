@@ -1,5 +1,5 @@
-FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$location', '$rootScope',
- ($scope, API, $q, $timeout, $location, $rootScope) ->
+FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', 'Navigator', '$rootScope',
+ ($scope, API, $q, $timeout, Navigator, $rootScope) ->
 
   $rootScope.title = 'All Terminals'
 
@@ -36,5 +36,5 @@ FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', '$loca
     "/terminal/#{terminal.name}"
 
   $scope.goTo = (terminal) ->
-    $location.path $scope.goToLink(terminal)
+    Navigator.go $scope.goToLink(terminal)
 ]

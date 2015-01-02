@@ -1,6 +1,6 @@
 FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
- '$location', '$routeParams', '$rootScope', 'tab', '$mdDialog',
- ($scope, API, $q, $timeout, $location, $routeParams, $rootScope, tab, $mdDialog) ->
+ 'Navigator', '$routeParams', '$rootScope', 'tab', '$mdDialog',
+ ($scope, API, $q, $timeout, Navigator, $routeParams, $rootScope, tab, $mdDialog) ->
 
   $rootScope.title = $routeParams.route
 
@@ -45,7 +45,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
       "/terminal/#{$scope.terminal.name}/route/#{$scope.route.name}/schedule"
 
   $scope.toggle = ->
-    $location.path $scope.toggleLink($scope.selected^0)
+    Navigator.go $scope.toggleLink($scope.selected^0)
 
   $scope.formatTime = (timeString) ->
     moment(timeString).format('h:mm A')

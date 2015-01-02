@@ -1,9 +1,9 @@
 FerryTime = angular.module 'FerryTime', ['ngMaterial', 'ngRoute', 'ui.mask']
 
-FerryTime.controller 'RootCtrl', ['$scope', '$location', '$window', '$timeout',
- ($scope, $location, $window, $timeout) ->
+FerryTime.controller 'RootCtrl', ['$scope', 'Navigator', '$window', '$timeout',
+ ($scope, Navigator, $window, $timeout) ->
   $scope.goHome = ->
-    $location.path '/'
+    Navigator.go '/'
   $scope.ready = ->
     $timeout ->
       $window.prerenderReady = true
