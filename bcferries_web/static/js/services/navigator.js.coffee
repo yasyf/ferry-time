@@ -1,6 +1,11 @@
-FerryTime.service 'Navigator', ['$window', '$location', ($window, $location) ->
+FerryTime.service 'Navigator', ['$window', '$location', '$timeout', ($window, $location, $timeout) ->
+  init = false
+  $timeout ->
+    init = true
+  , 1000
+
   indicatorPresent = ->
-    $('#navigator-indicator').css('display') is 'none'
+    !init or $('#navigator-indicator').css('display') is 'none'
 
   Navigator =
     go: (path) ->
