@@ -21,7 +21,7 @@ FerryTime.controller 'TerminalsCtrl', ['$scope', 'API', '$q', '$timeout', 'Navig
 
   if navigator.geolocation
     navigator.geolocation.getCurrentPosition (position) ->
-      latLon = "#{position.coords.latitude}, #{position.coords.longitude}"
+      latLon = "#{position.coords.latitude},#{position.coords.longitude}"
       API.get ['nearest_terminal'],
         location: latLon
       .then (response) ->
