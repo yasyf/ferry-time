@@ -13,9 +13,9 @@ FerryTime.controller 'SMSCtrl', ['$scope', '$mdDialog', '$timeout', 'terminal', 
     localStorage.setItem('number', $scope.data.number)
     API.post ['terminal', terminal.name, 'route', route.name, 'subscribe', $scope.time],
       number: $scope.data.number
-    .then ->
+    .then (response) ->
       $timeout -> $scope.template = 'success.html'
       $timeout ->
-        $mdDialog.hide()
+        $mdDialog.hide response.inserted
       , 1000
 ]

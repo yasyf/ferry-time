@@ -1,6 +1,6 @@
 from flask import jsonify, request
 from bcferries_web import app, bc
-from bcferries_web.helpers.mongo import sms_queue
+from bcferries_web.helpers.mongo import sms_queue, clean_objects
 
 @app.route('/api/all')
 def terminals_api_view():
@@ -42,4 +42,13 @@ def terminal_route_subscribe_view(**kwargs):
   if not sms_queue.find_one(insert):
     insert.update({'pending': True})
     sms_queue.insert(insert)
-    return jsonify({'status': 'success'})
+    inserted = clean_objects([insert])[0]
+    return jsonify({'status': 'success', 'inserted': inserted})
+  return jsonify({'status': 'error', 'message': 'duplicate'})
+
+@app.route('/api/terminal/<terminal>/route/<route>/number/<number>/subscriptions')
+def number_subscriptions_route(**kwargs):
+  search = {'done': False}
+  search.update(**kwargs)
+  subscriptions = clean_objects(list(sms_queue.find(search)))
+  return jsonify({'subscriptions': subscriptions})

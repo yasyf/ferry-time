@@ -29,7 +29,7 @@ def send_user_sms(user, offset):
 def setup_pending_sms():
   for user in sms_queue.find({'pending': True}):
     offset = get_offset(user)
-    update = {'pending': False, 'done': False, 'last_processed': datetime.datetime.utcnow(), 'offset': offset.seconds}
+    update = {'pending': False, 'last_processed': datetime.datetime.utcnow(), 'offset': offset.seconds}
     sms_queue.update({'_id': user['_id']}, {'$set': update})
     message = "[FerryTime] Notifications enabled for {} Ferry at {}!".format(user['route'], user['time'])
     send_sms(user['number'], message)

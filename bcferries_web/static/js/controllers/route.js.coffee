@@ -11,6 +11,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
   $scope.schedule = []
   $scope.crossingloadingStages = []
   $scope.scheduledloadingStages = []
+  $scope.subscriptions = []
   $scope.selected = tab
 
   API.get(['terminal', $scope.terminal.name, 'route', $scope.route.name]).then (response) ->
@@ -36,6 +37,22 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
           $scope.scheduledloadingStages[i] = 2
 
     $q.all(crossingPromises.concat schedulePromises).then -> $scope.ready()
+
+  if localStorage.getItem('number')
+    request = ['terminal', $scope.terminal.name, 'route', $scope.route.name,
+      'number', localStorage.getItem('number'), 'subscriptions']
+    API.get(request).then (response) ->
+      $timeout ->
+        $scope.subscriptions = response.subscriptions
+
+  getTime = (sailing) ->
+    sailing.time or sailing.actual_departure or sailing.scheduled_departure
+
+  $scope.isSubscribed = (sailing) ->
+    time = getTime(sailing)
+    subscription = _.find $scope.subscriptions,
+      time: $scope.formatTime(time)
+    !!subscription
 
   $scope.toggleLink = (tab) ->
     if tab is 0
@@ -64,7 +81,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
     moment(scheduled.actual_departure) < moment(scheduled.scheduled_departure)
 
   $scope.isDeparted = (sailing) ->
-    time = sailing.time or sailing.actual_departure or sailing.scheduled_departure
+    time = getTime(sailing)
     moment(time).add(20, 'minutes') < moment()
 
   $scope.diffMinutes = (scheduled) ->
@@ -74,6 +91,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
       moment(scheduled.actual_departure).diff(moment(scheduled.scheduled_departure), 'minutes')
 
   $scope.subscribeSMS = (ev, sailing) ->
+    return if $scope.isSubscribed(sailing)
     $mdDialog.show
       templateUrl: '/template/sms'
       targetEvent: ev
@@ -82,4 +100,7 @@ FerryTime.controller 'RouteCtrl', ['$scope', 'API', '$q', '$timeout',
         terminal: $scope.terminal
         route: $scope.route
         sailing: sailing
+    .then (inserted) ->
+      $timeout ->
+        $scope.subscriptions.push inserted
 ]
